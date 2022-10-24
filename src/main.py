@@ -16,6 +16,11 @@ import requests
 import json
 from flask import Flask, request, render_template
 
+from dotenv import load_dotenv
+load_dotenv()
+GH_USER = os.getenv('GH_USER')
+GH_TOKEN = os.getenv('GH_PAT')
+
 epd = epd2in13_V3.EPD()
 epd.init()
 epd.Clear(0xFF)
@@ -34,7 +39,7 @@ try:
     @app.route('/', methods=['POST'])
     def my_form_post():
         text = request.form['text']
-        r = requests.get('https://api.github.com/users/' + text, auth=('BIRBEXE', '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'))
+        r = requests.get('https://api.github.com/users/' + text, auth=(GH_USER, GH_TOKEN))
         if r.status_code == 404:
             time_draw.rectangle((10, 10, 250, 105), fill = 255, width=300)
             time_draw.text((10, 10), '404 - user not found', font = font, fill = 0)
