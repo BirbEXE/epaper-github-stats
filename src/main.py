@@ -50,7 +50,7 @@ try:
             return render_template('form.html')
         elif r.status_code == 200:
             pass
-        time_draw.rectangle((10, 10, 220, 105), fill = 255, width=300)
+        time_draw.rectangle((0, 0, 250, 122), fill = 255, width=300)
         time_draw.text((10, 10), rj['login'], font = font, fill = 0)
         if rj['bio'] is None:
             time_draw.text((10, 36), 'bio empty', font = fontsmall, fill = 0)
