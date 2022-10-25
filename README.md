@@ -62,6 +62,8 @@ cd epaper-github-stats
 
 ### Change .env file
 
+**This section is optional, but without filling out the .env file you will be rate limited to 60 requests per hour**
+
 To run the code, you will need to add your own github username into the `GH_USER` section of .env.
 
 You will also have to generate a Github Personal Access Token to access the API
