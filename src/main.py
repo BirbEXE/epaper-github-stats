@@ -58,6 +58,7 @@ try:
             time_draw.text((10, 36), 'bio: ' + str(rj['bio']), font = fontsmall, fill = 0)
         time_draw.text((10, 58), 'followers: ' + str(rj['followers']), font = fontmedium, fill = 0)
         time_draw.text((10, 76), 'public repos: ' + str(rj['public_repos']), font = fontmedium, fill = 0)
+        time_draw.text((10, 94), 'public gists: ' + str(rj['public_gists']), font = fontmedium, fill = 0)
         avatarurl = rj['avatar_url']
         avatar = Image.open(urlopen(avatarurl))
         avatar.convert('1')
