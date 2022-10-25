@@ -87,3 +87,11 @@ python main.py
 # cd into the 'src' folder
 python clear.py
 ```
+
+## Contributing
+
+If you feel like you have something to contribute, feel free to drop a pull request!
+
+<a href="https://github.com/birbexe/epaper-github-stats/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=birbexe/epaper-github-stats" />
+</a>
