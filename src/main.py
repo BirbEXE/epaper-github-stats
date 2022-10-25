@@ -14,6 +14,7 @@ from PIL import Image,ImageDraw,ImageFont
 import traceback
 import requests
 import json
+from urllib.request import urlopen
 from flask import Flask, request, render_template
 
 from dotenv import load_dotenv
@@ -41,6 +42,7 @@ try:
     def my_form_post():
         text = request.form['text']
         r = requests.get('https://api.github.com/users/' + text, auth=(GH_USER, GH_TOKEN))
+        rj = r.json()
         if r.status_code == 404:
             time_draw.rectangle((10, 10, 250, 105), fill = 255, width=300)
             time_draw.text((10, 10), '404 - user not found', font = font, fill = 0)
@@ -49,13 +51,18 @@ try:
         elif r.status_code == 200:
             pass
         time_draw.rectangle((10, 10, 220, 105), fill = 255, width=300)
-        time_draw.text((10, 10), r.json()['login'], font = font, fill = 0)
-        if r.json()['bio'] is None:
+        time_draw.text((10, 10), rj['login'], font = font, fill = 0)
+        if rj['bio'] is None:
             time_draw.text((10, 36), 'bio empty', font = fontsmall, fill = 0)
         else:
-            time_draw.text((10, 36), 'bio: ' + str(r.json()['bio']), font = fontsmall, fill = 0)
-        time_draw.text((10, 58), 'followers: ' + str(r.json()['followers']), font = fontmedium, fill = 0)
-        time_draw.text((10, 76), 'public repos: ' + str(r.json()['public_repos']), font = fontmedium, fill = 0)
+            time_draw.text((10, 36), 'bio: ' + str(rj['bio']), font = fontsmall, fill = 0)
+        time_draw.text((10, 58), 'followers: ' + str(rj['followers']), font = fontmedium, fill = 0)
+        time_draw.text((10, 76), 'public repos: ' + str(rj['public_repos']), font = fontmedium, fill = 0)
+        avatarurl = rj['avatar_url']
+        avatar = Image.open(urlopen(avatarurl))
+        avatar.convert('1')
+        avatar = avatar.resize((40, 40))
+        time_image.paste(avatar, (208, 80))
         epd.display(epd.getbuffer(time_image))
         return render_template('form.html')
 
