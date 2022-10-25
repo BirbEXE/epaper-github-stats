@@ -1,10 +1,13 @@
 # epaper-github-stats
+
 built for the raspberry pi zero 2w with a waveshare 2.13" V3 e-paper display
 
-# Installation
+## Installation
 
 Open the terminal of Raspberry Pi and run the following commands to install corresponding libraries: 
+
 - Install BCM2835 libraries:
+
 ```
 #Open the Raspberry Pi terminal and run the following command
 wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.71.tar.gz
@@ -15,6 +18,7 @@ sudo ./configure && sudo make && sudo make check && sudo make install
 ```
 
 - Install WiringPi libraries:
+
 ```
 #Open the Raspberry Pi terminal and run the following command
 sudo apt-get install wiringpi
@@ -32,6 +36,7 @@ gpio -v
 ```
 
 - Install Python3 libraries:
+
 ```
 sudo apt-get update
 sudo apt-get install python3-pip
@@ -43,7 +48,8 @@ sudo pip3 install flask
 sudo pip3 install requests
 ```
 
-# Download Code
+## Download Code
+
 ```
 # if you don't already have git installed
 sudo apt-get install git
@@ -53,14 +59,25 @@ git clone https://github.com/birbexe/epaper-github-stats.git
 cd epaper-github-stats
 ```
 
-# Run program
+### Change .env file
+
+To run the code, you will need to add your own github username into the `GH_USER` section of .env.
+
+You will also have to generate a Github Personal Access Token to access the API
+
+[Here's more info on creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)
+
+## Run program
+
 ```
 cd src
 python main.py
 ```
 
-# Troubleshooting
+## Troubleshooting
+
 - text left on screen
+
 ```
 # cd into the 'src' folder
 python clear.py
