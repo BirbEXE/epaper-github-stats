@@ -66,7 +66,7 @@ cd epaper-github-stats
 
 To run the code, you will need to add your own github username into the `GH_USER` section of .env.
 
-You will also have to generate a Github Personal Access Token to access the API
+You will also have to generate a Github Personal Access Token to access the API, which you will have to add to the `GH_TOKEN` field of your .env file
 
 [Here's more info on creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)
 
