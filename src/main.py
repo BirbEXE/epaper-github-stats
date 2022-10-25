@@ -54,8 +54,8 @@ try:
             time_draw.text((10, 36), 'bio empty', font = fontsmall, fill = 0)
         else:
             time_draw.text((10, 36), 'bio: ' + str(r.json()['bio']), font = fontsmall, fill = 0)
-        time_draw.text((10, 54), 'followers: ' + str(r.json()['followers']), font = fontmedium, fill = 0)
-        time_draw.text((10, 72), 'public repos: ' + str(r.json()['public_repos']), font = fontmedium, fill = 0)
+        time_draw.text((10, 58), 'followers: ' + str(r.json()['followers']), font = fontmedium, fill = 0)
+        time_draw.text((10, 76), 'public repos: ' + str(r.json()['public_repos']), font = fontmedium, fill = 0)
         epd.display(epd.getbuffer(time_image))
         return render_template('form.html')
 
