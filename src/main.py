@@ -26,6 +26,7 @@ epd.init()
 epd.Clear(0xFF)
 font = ImageFont.truetype(os.path.join(picdir, 'alliance.otf'), 24)
 fontsmall = ImageFont.truetype(os.path.join(picdir, 'alliance.otf'), 14)
+fontmedium = ImageFont.truetype(os.path.join(picdir, 'alliance.otf'), 16)
 time_image = Image.new('1', (epd.height, epd.width), 255)
 time_draw = ImageDraw.Draw(time_image)
 
@@ -52,7 +53,8 @@ try:
         if r.json()['bio'] is None:
             time_draw.text((10, 36), 'bio empty', font = fontsmall, fill = 0)
         else:
-            time_draw.text((10, 34), 'bio: ' + str(r.json()['bio']), font = fontsmall, fill = 0)
+            time_draw.text((10, 36), 'bio: ' + str(r.json()['bio']), font = fontsmall, fill = 0)
+        time_draw.text((10, 54), 'followers: ' + r.json()['followers'], font = fontmedium, fill = 0)
         epd.display(epd.getbuffer(time_image))
         return render_template('form.html')
 
