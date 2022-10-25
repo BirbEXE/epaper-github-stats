@@ -1,5 +1,7 @@
 # epaper-github-stats
 
+![pi](https://user-images.githubusercontent.com/60234159/197788646-44bc8811-16f1-4eea-ba32-95d5e5d25334.jpg)
+
 built for the raspberry pi zero 2w with a waveshare 2.13" V3 e-paper display
 
 ## Installation
